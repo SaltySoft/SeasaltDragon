@@ -1,0 +1,29 @@
+.overlay_square {
+    width: 100px;
+    height: 100px;
+    /*transition: width 2s, height 2s, transform 1.2s;*/
+    /*-webkit-transition: width 2s, height 2s, -webkit-transform 300ms;*/
+    /*-webkit-transition-origin: left top;*/
+    /*-webkit-transition-timing-function:linear;*/
+    /*-moz-transition: width 2s, height 2s, transform 2s;*/
+    /*-ms-transition: width 2s, height 2s, transform 2s;*/
+    /*-o-transition: width 2s, height 2s, transform 2s;*/
+    /*position: relative;*/
+    position: relative;
+}
+
+.overlay_square div {
+    position: relative;
+    transform-origin: 0% 00% 0;  /* W3C */
+    -webkit-origin: 0% 00% 0; /* Safari & Chrome */
+    -moz-origin: 0% 00% 0; /* Firefox */
+    -ms-origin: 0% 00% 0; /* Internet Explorer */
+    -o-origin: 0% 00% 0; /* Opera */
+
+}
+
+body {
+    background-color: black;
+}
+
+h1 {}

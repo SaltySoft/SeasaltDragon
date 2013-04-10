@@ -1,0 +1,78 @@
+<html>
+<head>
+    <script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="/openseadragon/build/openseadragon/openseadragon.js" ></script>
+    <script type="text/javascript" src="/SeasaltDragon.js" ></script>
+    <link rel="stylesheet" type="text/css" href="main.css" />
+</head>
+<body>
+<h3>Tests for OpenSeaDragon</h3>
+
+<div id="viewContent">
+
+</div>
+
+<script type="text/javascript">
+
+    // Example
+    var osd = OpenSeadragon({
+        id:              "viewContent",
+        tileSources:   {
+            height: 4768*256,
+            width:  6740*256,
+            tileSize: 256,
+            minLevel: 0,
+            getTileUrl: function( level, x, y ){
+                return "/tiles/tiles/"+(level)+"/"+x+"_"+y+".png";
+            }
+        }
+    });
+
+    var overlay = undefined;
+    var drawer = undefined;
+    var point = undefined;
+    osd.addHandler("open", function () {
+        var div = $(document.createElement("div"));
+        div.html('<img style="width: 100%;max-height: 100%;" src="/logo_facebook.png" />');
+        div.addClass("overlay_square");
+        var div2 = $(document.createElement("div"));
+        div2.html('<img style="width: 100%;max-height: 100%;" src="/images.jpg" />');
+        div2.addClass("overlay_square");
+        var div3 = $(document.createElement("div"));
+        div3.html('<img style="width: 100%;max-height: 100%;" src="/logotwitter.png" />');
+        div3.addClass("overlay_square");
+        var div4 = $(document.createElement("div"));
+        div4.html('<img style="width: 100%;max-height: 100%;" src="/twitterusers.jpg" />');
+        div4.addClass("overlay_square");
+        var div5 = $(document.createElement("div"));
+        div5.html('<img style="width: 100%;max-height: 100%;" src="/evwill.jpg" />');
+        div5.addClass("overlay_square");
+
+        var div6 = $(document.createElement("div"));
+        div6.html('<img style="width: 100%;max-height: 100%;" src="/twitterusers.jpg" />');
+        div6.addClass("overlay_square");
+
+        var annotation = new SeasaltDragon.Annotation();
+        annotation.setPosition(0.5, 0.2, 0.01, 0.01);
+        annotation.addElement(div[0], 0, 7);
+        annotation.addElement(div2[0], 7, 100);
+
+        var annotation2 = new SeasaltDragon.Annotation();
+        annotation2.setPosition(0.22, 0.33, 0.01, 0.01);
+        annotation2.addElement(div3[0], 0, 7);
+        annotation2.addElement(div4[0], 7, 50);
+        annotation2.addElement(div5[0], 50, 100);
+        var seasalt = new SeasaltDragon(osd);
+        seasalt.insertAnnotation(annotation);
+        seasalt.insertAnnotation(annotation2);
+    });
+
+
+
+
+
+
+
+</script>
+</body>
+</html>
